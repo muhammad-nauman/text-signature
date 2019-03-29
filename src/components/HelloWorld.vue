@@ -27,15 +27,46 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+  <img :src="image" />    
   </div>
 </template>
 
 <script>
+import TextSignature  from 'text-signature';
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  data() {
+    return {
+      image: '',
+    }
+
+  },
+  mounted(){
+    var self = this;
+    var optionsParameter = {
+            width: 300,
+            height: 300,
+            paddingX: 100,
+            paddingY: 100,
+            canvasTargetDom: ".js-canvasTargetDom",
+            font:  ["50px", "'Homemade Apple'"],
+            color: "blue",
+            textString: "John Albanese",
+            customFont: { 
+              name: "'Homemade Apple'", 
+              url: "http://fonts.googleapis.com/css?family=Homemade+Apple"  
+            }
+    };
+    let sign = new TextSignature(optionsParameter);
+    console.log(sign.generateImage(optionsParameter));
+    console.log(sign.init());
+    console.log(typeof sign.getImageData());
+    self.image = sign.getImageData();
+    console.log(self.image);
+  },
 }
 </script>
 
