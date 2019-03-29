@@ -47,7 +47,7 @@ export default {
   mounted(){
     var self = this;
     var optionsParameter = {
-            width: 300,
+            width: 700,
             height: 300,
             paddingX: 100,
             paddingY: 100,
@@ -61,11 +61,8 @@ export default {
             }
     };
     let sign = new TextSignature(optionsParameter);
-    console.log(sign.generateImage(optionsParameter));
-    console.log(sign.init());
-    console.log(typeof sign.getImageData());
+    sign.generateImage(optionsParameter);
     self.image = sign.getImageData();
-    console.log(self.image);
   },
 }
 </script>
