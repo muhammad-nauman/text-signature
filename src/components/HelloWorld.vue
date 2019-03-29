@@ -19,14 +19,10 @@
       <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div>
+      <input type="text" v-model="signature" @keyup.enter="createSignature" />
+      <small>Press enter to change signature</small>
+    </div>
   <img :src="image" />    
   </div>
 </template>
@@ -41,28 +37,36 @@ export default {
   data() {
     return {
       image: '',
+      signature: 'Jhon Albanese',
+      signature_options: {
+        width: 700,
+        height: 300,
+        paddingX: 100,
+        paddingY: 100,
+        canvasTargetDom: ".js-canvasTargetDom",
+        font:  ["50px", "'Homemade Apple'"],
+        color: "blue",
+        textString: "John Albanese",
+        customFont: { 
+          name: "'Homemade Apple'", 
+          url: "http://fonts.googleapis.com/css?family=Homemade+Apple"  
+        }
+      }
     }
 
   },
+  methods: {
+    createSignature() {
+      this.signature_options.textString = this.signature;
+      let sign = new TextSignature(this.signature_options);
+      sign.generateImage(this.signature_options);
+      this.image = sign.getImageData();
+    }
+  },
   mounted(){
-    var self = this;
-    var optionsParameter = {
-            width: 700,
-            height: 300,
-            paddingX: 100,
-            paddingY: 100,
-            canvasTargetDom: ".js-canvasTargetDom",
-            font:  ["50px", "'Homemade Apple'"],
-            color: "blue",
-            textString: "John Albanese",
-            customFont: { 
-              name: "'Homemade Apple'", 
-              url: "http://fonts.googleapis.com/css?family=Homemade+Apple"  
-            }
-    };
-    let sign = new TextSignature(optionsParameter);
-    sign.generateImage(optionsParameter);
-    self.image = sign.getImageData();
+    let sign = new TextSignature(this.signature_options);
+    sign.generateImage(this.signature_options);
+    this.image = sign.getImageData();
   },
 }
 </script>
@@ -82,5 +86,12 @@ li {
 }
 a {
   color: #42b983;
+}
+input {
+  width: 200px;
+  height: 20px
+}
+small{
+  font-weight: bold;
 }
 </style>
