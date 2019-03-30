@@ -123,7 +123,7 @@ export default {
   },
   async mounted(){
     let sign = await new TextSignature(this.signature_options);
-    sign.generateImage(this.signature_options);
+    await sign.generateImage(this.signature_options);
     this.image = sign.getImageData();
   },
 }
