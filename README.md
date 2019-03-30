@@ -4,7 +4,11 @@
 ```
 npm install
 ```
-
+## Gide specific to Text Signature Plugin
+The package `text--signature` uses jQuery in its core so you need to install jQuery if it is not already installed. Run this command:
+```
+npm install jquery
+```
 ### Compiles and hot-reloads for development
 ```
 npm run serve
