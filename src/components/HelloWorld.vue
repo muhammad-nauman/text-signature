@@ -114,15 +114,15 @@ export default {
   computed: {
   },
   methods: {
-    createSignature() {
+    async createSignature() {
       this.signature_options.textString = this.signature;
-      let sign = new TextSignature(this.signature_options);
-      sign.generateImage(this.signature_options);
+      let sign = await new TextSignature(this.signature_options);
+      await sign.generateImage(this.signature_options);
       this.image = sign.getImageData();
     }
   },
   mounted(){
-    this.createSignature();
+    setTimeout(() => this.createSignature(), 1500);
   },
 }
 </script>
