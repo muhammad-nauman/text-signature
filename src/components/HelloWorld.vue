@@ -12,24 +12,24 @@
           </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full  px-3 mb-6 md:mb-0">
+          <!-- <div class="w-full  px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
               Font Size
             </label>
-            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
-          </div>
-          <div class="w-full  px-3 mb-6 md:mb-0">
+            <input v-model="fontSize" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
+          </div> -->
+          <!-- <div class="w-full  px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
               Font Family
             </label>
-            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
-          </div>
+            <input v-model="fontFamily" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
+          </div> -->
           <div class="w-full  px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
               Font Url
             </label>
             <div class="relative">
-              <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
+              <input v-model="signature_options.customFont.url" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
               <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
               </div>
             </div>
@@ -38,7 +38,7 @@
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
               Font Color
             </label>
-            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-zip" type="text" placeholder="90210">
+            <input v-model="signature_options.color" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-zip" type="text" placeholder="90210">
           </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-2">
@@ -46,20 +46,20 @@
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
               Image Height[px]
             </label>
-            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
+            <input v-model="signature_options.height" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
           </div>
           <div class="w-full  px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
               Image Width[px]
             </label>
-            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
+            <input v-model="signature_options.width" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
           </div>
           <div class="w-full  px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
               Image Padding X
             </label>
             <div class="relative">
-              <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
+              <input v-model="signature_options.paddingX" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-city" type="text" placeholder="Albuquerque">
               <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
               </div>
             </div>
@@ -68,9 +68,12 @@
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
               Image Padding Y
             </label>
-            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-zip" type="text" placeholder="90210">
+            <input v-model="signature_options.paddingY" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey" id="grid-zip" type="text" placeholder="90210">
           </div>
         </div>
+        <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full" @click.prevent="createSignature">
+          Generate
+        </button>
       </form>
       <img :src="image" />
     <!-- </div> -->
@@ -97,7 +100,7 @@ export default {
         paddingX: 100,
         paddingY: 100,
         canvasTargetDom: ".js-canvasTargetDom",
-        font:  ["50px", "'Homemade Apple'"],
+        font: ["50px", "'Homemade Apple'"],
         color: "blue",
         textString: "John Albanese",
         customFont: { 
@@ -107,6 +110,8 @@ export default {
       }
     }
 
+  },
+  computed: {
   },
   methods: {
     createSignature() {
