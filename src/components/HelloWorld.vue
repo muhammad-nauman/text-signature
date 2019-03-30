@@ -121,10 +121,8 @@ export default {
       this.image = sign.getImageData();
     }
   },
-  async mounted(){
-    let sign = await new TextSignature(this.signature_options);
-    await sign.generateImage(this.signature_options);
-    this.image = sign.getImageData();
+  mounted(){
+    this.createSignature();
   },
 }
 </script>
