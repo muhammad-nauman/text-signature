@@ -102,7 +102,7 @@ export default {
         textString: "John Albanese",
         customFont: { 
           name: "'Homemade Apple'", 
-          url: "http://fonts.googleapis.com/css?family=Homemade+Apple"  
+          url: "https://fonts.googleapis.com/css?family=Homemade+Apple"  
         }
       }
     }
