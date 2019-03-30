@@ -121,8 +121,8 @@ export default {
       this.image = sign.getImageData();
     }
   },
-  mounted(){
-    let sign = new TextSignature(this.signature_options);
+  async mounted(){
+    let sign = await new TextSignature(this.signature_options);
     sign.generateImage(this.signature_options);
     this.image = sign.getImageData();
   },
